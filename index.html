@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAS Nepal - Bachelor's & Master's Degree Programs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #ffffff;
+        }
+        
+        .btn-primary {
+            background: #84cc15;
+            color: #1c398e;
+            transition: all 0.3s ease;
+            border: 2px solid #84cc15;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: #84cc15;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #1c398e;
+            border: 2px solid #1c398e;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #1c398e;
+            color: white;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #1c398e 0%, #2d4fa1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            padding: 32px;
+        }
+        
+        .card:hover {
+            border-color: #000000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1c398e;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666666;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1c398e;
+            margin-bottom: 1rem;
+        }
+        
+        .course-badge {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #1c398e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .divider {
+            width: 3px;
+            height: 32px;
+            background: #1c398e;
+            border-radius: 2px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="bg-[#1c398e] text-white py-3 text-sm font-medium">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="tel:9851426477" class="hover:opacity-70 transition flex items-center gap-2">
+                        <i class="fas fa-phone w-4"></i>
+                        <span>9851426477</span>
+                    </a>
+                    <a href="mailto:advancedstudies.ias@gmail.com" class="hover:opacity-70 transition flex items-center gap-2">
+                        <i class="fas fa-envelope w-4"></i>
+                        <span>advancedstudies.ias@gmail.com</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt w-4"></i>
+                    <span>Lazimpat, Kathmandu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-[#1c398e] rounded-lg flex items-center justify-center">
+                        <span class="text-white font-black text-lg">IAS</span>
+                    </div>
+                    <div>
+                        <div class="font-black text-lg text-[#1c398e]">IAS Nepal</div>
+                        <div class="text-xs text-gray-500 font-medium">Advanced Studies</div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="/index.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Home</a>
+                    <a href="/about us.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">About</a>
+                    <a href="/courses.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Courses</a>
+                    <a href="contact.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Contact</a>
+                    <a href="tel:9851426477" class="btn-primary px-6 py-2 rounded-lg font-semibold text-sm inline-block">
+                      Call Us
+                    </a>
+                </div>
+                
+                <button class="lg:hidden text-gray-700 text-xl" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white">
+            <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+                <a href="/index.html" class="text-gray-700 font-500 py-2">Home</a>
+                <a href="/about us.html" class="text-gray-700 font-500 py-2">About</a>
+                <a href="/courses.html" class="text-gray-700 font-500 py-2">Courses</a>
+                <a href="/contact.html" class="text-gray-700 font-500 py-2">Contact</a>
+                <a href="tel:9851426477" class="btn-primary px-6 py-2 rounded-lg font-semibold text-sm inline-block">
+                      Call Us
+                    </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 lg:py-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <span class="course-badge">FLEXIBLE EDUCATION</span>
+                        <h1 class="text-5xl lg:text-6xl font-black text-black leading-tight">
+                            Complete Your Degree<br><span class="text-gradient">Your Way</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 font-400 max-w-md">
+                            Bachelor's & Master's programs designed for gap students, working professionals, and those studying abroad.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/9779851426477" class="btn-secondary px-8 py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                        <div class="stat-box">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Students</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Programs</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Success</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Students" class="rounded-2xl w-full h-[500px] object-cover">
+                    <div class="absolute bottom-6 left-6 right-6 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+  <div class="flex items-center gap-6">
+    <!-- Logos -->
+    <div class="flex gap-4 items-center">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/UGC_India_Logo.png/250px-UGC_India_Logo.png" alt="UGC Logo" class="h-12 w-auto">
+      <img src="https://www.ptaindia.com/wp-content/uploads/2025/04/naac-A-accreditation-logo-e1744345178575.jpg" alt="NAAC Logo" class="h-12 w-auto">
+    </div>
+
+    <!-- Text -->
+    <div>
+      <div class="font-semibold text-black text-lg">UGC & NAAC A+ Approved</div>
+      <p class="text-sm text-gray-600 font-normal">Recognized and accredited programs</p>
+    </div>
+  </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="courses" class="py-20 lg:py-32 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 space-y-4">
+                <span class="course-badge">OUR PROGRAMS</span>
+                <h2 class="text-4xl lg:text-5xl font-black text-black">
+                    Bachelor's & Master's Degrees
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Choose from our diverse range of professionally recognized degree programs
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-black mb-4">Bachelor's Degrees</h3>
+                    <p class="text-gray-600 font-400 mb-6">
+                        BBA • BCOM • BSCIT • BA • LLB • BTECH • BCA
+                    </p>
+                    <button class="btn-secondary w-full px-6 py-2 rounded-lg font-semibold text-sm">
+                        Learn More
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-black mb-4">Master's Degrees</h3>
+                    <p class="text-gray-600 font-400 mb-6">
+                        MBA • MCOM • MSCIT • MA • LLM • MTECH • MCA
+                    </p>
+                    <button class="btn-secondary w-full px-6 py-2 rounded-lg font-semibold text-sm">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="/courses.html" class="btn-primary px-10 py-3 rounded-lg font-semibold inline-block">
+                    Explore All Programs
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Why Choose IAS Section -->
+    <section id="why" class="py-20 lg:py-32 bg-gradient-to-br from-[#1c398e] via-[#2d5aa8] to-[#1c398e] relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-[#84cc15] opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#84cc15] opacity-5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 space-y-4">
+                <span class="inline-block bg-[#84cc15] text-[#1c398e] px-4 py-2 rounded-full font-black text-sm">WHY IAS</span>
+                <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight">
+                    Why Choose IAS Nepal
+                </h2>
+                <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+                    Built for your success with flexible, affordable, and recognized education
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">Cost-Effective</h3>
+                        <p class="text-gray-300 font-400">Complete degrees at ₹2 Lakh or less</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">Save 1+ Years</h3>
+                        <p class="text-gray-300 font-400">Credit transfer available for faster completion</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">Flexible Learning</h3>
+                        <p class="text-gray-300 font-400">Online, regular, or hybrid classes at your choice</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">Accredited Programs</h3>
+                        <p class="text-gray-300 font-400">UGC & NAAC A+ recognized certifications</p>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">International Support</h3>
+                        <p class="text-gray-300 font-400">Perfect for students studying abroad</p>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-[#84cc15] to-[#a3e635] rounded-xl flex items-center justify-center text-2xl text-[#1c398e] mb-6">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3">Professional Focused</h3>
+                        <p class="text-gray-300 font-400">Designed for working professionals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-32 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=600&fit=crop" alt="Students collaborating" class="rounded-2xl w-full h-[500px] object-cover">
+
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <span class="course-badge">ABOUT US</span>
+                        <h2 class="text-4xl lg:text-5xl font-black text-black leading-tight">
+                            Empowering Education for Everyone
+                        </h2>
+                        <p class="text-lg text-gray-600 font-400">
+                            Institute of Advanced Studies (IAS) is Nepal's premier destination for flexible, affordable, and recognized Bachelor's and Master's degree programs. We're dedicated to helping gap students, dropouts, professionals, and international students continue their educational journey without compromises.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="divider"></div>
+                            <div>
+                                <h4 class="font-black text-black text-sm mb-1">Our Mission</h4>
+                                <p class="text-gray-600 font-400 text-sm">Make quality education accessible, flexible, and affordable for every student regardless of their circumstances.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="divider"></div>
+                            <div>
+                                <h4 class="font-black text-black text-sm mb-1">Our Vision</h4>
+                                <p class="text-gray-600 font-400 text-sm">Become Nepal's leading educational institution for working professionals and non-traditional learners.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary px-8 py-3 rounded-lg font-semibold flex items-center gap-2">
+                        <span>Get Started Today</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lg:py-32 bg-black text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-4xl lg:text-5xl font-black">
+                        Ready to Begin?
+                    </h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                        Don't let your educational journey stop. Get in touch today and take the first step.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="tel:9851426477" class="card bg-white/5 border-white/10 p-8 text-center hover:bg-white/10 group">
+                        <div class="text-4xl mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <h3 class="font-black text-white text-lg mb-2">Phone</h3>
+                        <p class="text-gray-300">9851426477</p>
+                    </a>
+
+                    <a href="mailto:advancedstudies.ias@gmail.com" class="card bg-white/5 border-white/10 p-8 text-center hover:bg-white/10 group">
+                        <div class="text-4xl mb-4 group-hover:scale-110 transition">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <h3 class="font-black text-white text-lg mb-2">Email</h3>
+                        <p class="text-gray-300">advancedstudies.ias@gmail.com</p>
+                    </a>
+
+                    <div class="card bg-white/5 border-white/10 p-8 text-center">
+                        <div class="text-4xl mb-4">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <h3 class="font-black text-white text-lg mb-2">Location</h3>
+                        <p class="text-gray-300">Lazimpat, Kathmandu</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-black font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2">
+                        <span>Call Us</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </button>
+                    <a href="https://wa.me/9779851426477" class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-black transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-black font-black text-sm">IAS</span>
+                        </div>
+                        <div>
+                            <div class="font-black text-white text-sm">IAS Nepal</div>
+                            <div class="text-xs text-gray-500">Advanced Studies</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500">Empowering students to achieve their educational goals through flexible and accessible degree programs.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Bachelor's Degrees</a></li>
+                        <li><a href="#" class="hover:text-white transition">Master's Degrees</a></li>
+                        <li><a href="#" class="hover:text-white transition">Online Classes</a></li>
+                        <li><a href="#" class="hover:text-white transition">Credit Transfer</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#courses" class="hover:text-white transition">Courses</a></li>
+                        <li><a href="#why" class="hover:text-white transition">Why IAS</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 IAS Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

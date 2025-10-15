@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - IAS Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #ffffff;
+        }
+        
+        .btn-primary {
+            background: #84cc15;
+            color: #1c398e;
+            transition: all 0.3s ease;
+            border: 2px solid #84cc15;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: #84cc15;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #1c398e;
+            border: 2px solid #1c398e;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #1c398e;
+            color: white;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #1c398e 0%, #2d4fa1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .course-badge {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #1c398e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1c398e 0%, #84cc15 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card:hover {
+            border-color: #1c398e;
+            box-shadow: 0 12px 40px rgba(28, 57, 142, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .course-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #1c398e 0%, #2d5aa8 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #1c398e;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tab-button.active {
+            background: #1c398e;
+            color: white;
+        }
+
+        .tab-button:not(.active) {
+            background: #f3f4f6;
+            color: #1c398e;
+        }
+
+        .tab-button:not(.active):hover {
+            border-color: #1c398e;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #84cc15 0%, #a3e635 100%);
+            color: #1c398e;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="bg-[#1c398e] text-white py-3 text-sm font-medium">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <div class="flex gap-6">
+                    <a href="tel:9851426477" class="hover:opacity-70 transition flex items-center gap-2">
+                        <i class="fas fa-phone w-4"></i>
+                        <span>9851426477</span>
+                    </a>
+                    <a href="mailto:advancedstudies.ias@gmail.com" class="hover:opacity-70 transition flex items-center gap-2">
+                        <i class="fas fa-envelope w-4"></i>
+                        <span>advancedstudies.ias@gmail.com</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt w-4"></i>
+                    <span>Lazimpat, Kathmandu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-[#1c398e] rounded-lg flex items-center justify-center">
+                        <span class="text-white font-black text-lg">IAS</span>
+                    </div>
+                    <div>
+                        <div class="font-black text-lg text-[#1c398e]">IAS Nepal</div>
+                        <div class="text-xs text-gray-500 font-medium">Advanced Studies</div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="/index.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Home</a>
+                    <a href="/about us.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">About</a>
+                    <a href="/courses.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Courses</a>
+                    <a href="contact.html" class="text-sm font-500 text-gray-700 hover:text-[#1c398e] transition">Contact</a>
+                    <a href="tel:9851426477" class="btn-primary px-6 py-2 rounded-lg font-semibold text-sm inline-block">
+                      Call Us
+                    </a>
+                </div>
+                
+                <button class="lg:hidden text-gray-700 text-xl" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+<!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white">
+            <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+                <a href="/index.html" class="text-gray-700 font-500 py-2">Home</a>
+                <a href="/about us.html" class="text-gray-700 font-500 py-2">About</a>
+                <a href="/courses.html" class="text-gray-700 font-500 py-2">Courses</a>
+                <a href="/contact.html" class="text-gray-700 font-500 py-2">Contact</a>
+                <a href="tel:9851426477" class="btn-primary px-6 py-2 rounded-lg font-semibold text-sm inline-block">
+                      Call Us
+                    </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 lg:py-32 text-white relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80" 
+                alt="Background" 
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-black/90"></div>
+        </div>
+        
+        <div class="absolute top-0 left-0 w-96 h-96 bg-[#84cc15] opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#84cc15] opacity-10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center space-y-6">
+                <span class="inline-block bg-[#84cc15] text-[#1c398e] px-4 py-2 rounded-full font-black text-sm">OUR PROGRAMS</span>
+                <h1 class="text-5xl lg:text-6xl font-black leading-tight">
+                    Bachelor's & Master's<br><span class="text-[#84cc15]">Degree Programs</span>
+                </h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Complete your degree online, flexible, affordable & UGC approved. Perfect for gap students, working professionals, and students studying abroad.
+                </p>
+                <div class="pt-4">
+                    <div class="price-tag">
+                        <div class="text-sm font-semibold">Starting from</div>
+                        <div class="text-3xl">₹2 Lakh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Section -->
+    <section class="py-8 bg-gray-50 sticky top-[73px] z-40 border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center gap-4 flex-wrap">
+                <button class="tab-button active" onclick="filterCourses('all')">All Courses</button>
+                <button class="tab-button" onclick="filterCourses('bachelors')">Bachelor's</button>
+                <button class="tab-button" onclick="filterCourses('masters')">Master's</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Bachelor's Courses -->
+            <div class="mb-20" data-category="bachelors">
+                <div class="text-center mb-12 space-y-4">
+                    <span class="course-badge">BACHELOR'S PROGRAMS</span>
+                    <h2 class="text-4xl lg:text-5xl font-black text-black">
+                        Undergraduate Degrees
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        3-4 year programs designed for career starters and professionals
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- BBA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BBA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Business Administration</p>
+                        <p class="text-gray-600 text-sm mb-6">Comprehensive business management program covering marketing, finance, HR, and operations.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- BCOM -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BCOM</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Commerce</p>
+                        <p class="text-gray-600 text-sm mb-6">Accounting, taxation, economics, and commerce fundamentals for business careers.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- BSCIT -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BSCIT</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Science in IT</p>
+                        <p class="text-gray-600 text-sm mb-6">Information technology, software development, networking, and database management.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- BA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Arts</p>
+                        <p class="text-gray-600 text-sm mb-6">Liberal arts education with specializations in various humanities and social sciences.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- LLB -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">LLB</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Laws</p>
+                        <p class="text-gray-600 text-sm mb-6">Comprehensive legal education covering constitutional, criminal, and civil law.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 3 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- BTECH -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BTECH</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Technology</p>
+                        <p class="text-gray-600 text-sm mb-6">Engineering and technology programs with various specializations available.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- BCA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">BCA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Bachelor of Computer Applications</p>
+                        <p class="text-gray-600 text-sm mb-6">Computer science fundamentals, programming, and application development.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 4 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master's Courses -->
+            <div data-category="masters">
+                <div class="text-center mb-12 space-y-4">
+                    <span class="course-badge">MASTER'S PROGRAMS</span>
+                    <h2 class="text-4xl lg:text-5xl font-black text-black">
+                        Postgraduate Degrees
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        2 year advanced programs for career advancement and specialization
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- MBA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MBA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Business Administration</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced business management with leadership, strategy, and entrepreneurship focus.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- MCOM -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MCOM</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Commerce</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced accounting, finance, taxation, and commercial law expertise.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- MSCIT -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MSCIT</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Science in IT</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced IT concepts, cloud computing, cybersecurity, and data science.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- MA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Arts</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced studies in humanities, social sciences, and liberal arts disciplines.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- LLM -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">LLM</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Laws</p>
+                        <p class="text-gray-600 text-sm mb-6">Specialized legal studies with focus on corporate, international, or criminal law.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- MTECH -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MTECH</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Technology</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced engineering with specializations in various technical domains.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+
+                    <!-- MCA -->
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-black mb-3">MCA</h3>
+                        <p class="text-gray-600 font-medium mb-4">Master of Computer Applications</p>
+                        <p class="text-gray-600 text-sm mb-6">Advanced software development, AI, machine learning, and system architecture.</p>
+                        <div class="mb-6">
+                            <span class="feature-tag"><i class="fas fa-clock text-xs mr-1"></i> 2 Years</span>
+                            <span class="feature-tag"><i class="fas fa-laptop text-xs mr-1"></i> Online/Regular</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <span class="course-badge">PROGRAM BENEFITS</span>
+                    <h2 class="text-4xl lg:text-5xl font-black text-black">
+                        Why Choose Our Programs
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center space-y-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#1c398e] to-[#2d5aa8] rounded-2xl flex items-center justify-center text-3xl text-white mx-auto">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-black">Flexible Learning</h3>
+                        <p class="text-gray-600 font-400">Choose online, regular, or hybrid classes based on your schedule</p>
+                    </div>
+
+                    <div class="text-center space-y-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#1c398e] to-[#2d5aa8] rounded-2xl flex items-center justify-center text-3xl text-white mx-auto">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-black">Study Abroad Support</h3>
+                        <p class="text-gray-600 font-400">Perfect for students studying abroad who need flexible options</p>
+                    </div>
+
+                    <div class="text-center space-y-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#1c398e] to-[#2d5aa8] rounded-2xl flex items-center justify-center text-3xl text-white mx-auto">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-black">For Working Professionals</h3>
+                        <p class="text-gray-600 font-400">Designed for busy professionals who want to advance their careers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Can Apply Section -->
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-[#1c398e] via-[#2d5aa8] to-[#1c398e] text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <span class="inline-block bg-[#84cc15] text-[#1c398e] px-4 py-2 rounded-full font-black text-sm">WHO CAN APPLY</span>
+                    <h2 class="text-4xl lg:text-5xl font-black">
+                        Perfect For
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+                        <div class="text-5xl mb-4">🎓</div>
+                        <h3 class="text-xl font-black mb-2">Gap Students</h3>
+                        <p class="text-gray-200 text-sm">Resume your education after a break</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+                        <div class="text-5xl mb-4">🔄</div>
+                        <h3 class="text-xl font-black mb-2">Dropouts</h3>
+                        <p class="text-gray-200 text-sm">Complete your incomplete degree</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+                        <div class="text-5xl mb-4">💼</div>
+                        <h3 class="text-xl font-black mb-2">Busy Professionals</h3>
+                        <p class="text-gray-200 text-sm">Study while working full-time</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+                        <div class="text-5xl mb-4">✈️</div>
+                        <h3 class="text-xl font-black mb-2">Abroad Students</h3>
+                        <p class="text-gray-200 text-sm">Complete degree while overseas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-3xl p-12 text-center space-y-8">
+                <div class="space-y-4">
+                    <h2 class="text-4xl lg:text-5xl font-black text-black leading-tight">
+                        Ready to Begin Your Journey?
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Don't let a gap be a full stop. Continue your education today!
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button class="btn-primary px-10 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2">
+                        <span>Call Us</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="https://wa.me/9779851426477" class="btn-secondary px-10 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="pt-8 border-t border-gray-200">
+                    <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-phone text-[#1c398e]"></i>
+                            <span class="font-semibold">9851426477</span>
+                        </div>
+                        <div class="w-px h-4 bg-gray-300"></div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-[#1c398e]"></i>
+                            <span class="font-semibold">advancedstudies.ias@gmail.com</span>
+                        </div>
+                        <div class="w-px h-4 bg-gray-300"></div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-[#1c398e]"></i>
+                            <span class="font-semibold">Lazimpat, Kathmandu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-black font-black text-sm">IAS</span>
+                        </div>
+                        <div>
+                            <div class="font-black text-white text-sm">IAS Nepal</div>
+                            <div class="text-xs text-gray-500">Advanced Studies</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500">Empowering students to achieve their educational goals through flexible and accessible degree programs.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Bachelor's Degrees</a></li>
+                        <li><a href="#" class="hover:text-white transition">Master's Degrees</a></li>
+                        <li><a href="#" class="hover:text-white transition">Online Classes</a></li>
+                        <li><a href="#" class="hover:text-white transition">Credit Transfer</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition">Courses</a></li>
+                        <li><a href="#why" class="hover:text-white transition">Why IAS</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black text-white text-sm mb-4">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition text-white">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 IAS Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function filterCourses(category) {
+            const allButtons = document.querySelectorAll('.tab-button');
+            const allSections = document.querySelectorAll('[data-category]');
+            
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (category === 'all') {
+                allSections.forEach(section => section.style.display = 'block');
+            } else {
+                allSections.forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
